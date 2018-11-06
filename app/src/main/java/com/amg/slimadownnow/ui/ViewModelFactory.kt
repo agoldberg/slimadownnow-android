@@ -8,8 +8,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.amg.slimadownnow.data.Injectors
 import com.amg.slimadownnow.data.weight.WeightRepository
+import com.amg.slimadownnow.ui.exercise.addedit.ExerciseAddEditViewModel
 import com.amg.slimadownnow.ui.exercise.tab.ExerciseTabViewModel
+import com.amg.slimadownnow.ui.food.addedit.FoodAddEditViewModel
 import com.amg.slimadownnow.ui.food.tab.FoodTabViewModel
+import com.amg.slimadownnow.ui.weight.addedit.WeightAddEditViewModel
 import com.amg.slimadownnow.ui.weight.tab.WeightTabViewModel
 
 
@@ -28,10 +31,16 @@ class ViewModelFactory private constructor(
                 when {
                     isAssignableFrom(WeightTabViewModel::class.java) ->
                         WeightTabViewModel(application, weightRepository)
+                    isAssignableFrom(WeightAddEditViewModel::class.java) ->
+                        WeightAddEditViewModel(application, weightRepository)
                     isAssignableFrom(FoodTabViewModel::class.java) ->
                         FoodTabViewModel(application)
+                    isAssignableFrom(FoodAddEditViewModel::class.java) ->
+                        FoodAddEditViewModel(application)
                     isAssignableFrom(ExerciseTabViewModel::class.java) ->
                         ExerciseTabViewModel(application)
+                    isAssignableFrom(ExerciseAddEditViewModel::class.java) ->
+                        ExerciseAddEditViewModel(application)
                     else ->
                         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
                 }

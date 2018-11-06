@@ -4,11 +4,16 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import com.amg.slimadownnow.util.SingleLiveEvent
 
+/**
+ * @author aaron_goldberg
+ *
+ * @since 11/06/18
+ */
 class FoodTabViewModel (context: Application) : AndroidViewModel(context) {
 
-    val newFoodEvent = SingleLiveEvent<Void>()
+    val addFoodEvent = SingleLiveEvent<Void>()
 
     fun addFood() {
-        newFoodEvent.call()
+        addFoodEvent.call()
     }
 }

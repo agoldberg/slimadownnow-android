@@ -3,11 +3,17 @@ package com.amg.slimadownnow.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.amg.slimadownnow.R
 import com.amg.slimadownnow.ui.exercise.addedit.ExerciseAddEditFragment
+import com.amg.slimadownnow.ui.exercise.addedit.ExerciseAddEditViewModel
 import com.amg.slimadownnow.ui.food.addedit.FoodAddEditFragment
+import com.amg.slimadownnow.ui.food.addedit.FoodAddEditViewModel
 import com.amg.slimadownnow.ui.weight.addedit.WeightAddEditFragment
+import com.amg.slimadownnow.ui.weight.addedit.WeightAddEditViewModel
+import com.amg.slimadownnow.util.obtainViewModel
 import com.amg.slimadownnow.util.replaceFragment
+import com.google.android.material.snackbar.Snackbar
 
 /**
  * @author aaron_goldberg
@@ -19,8 +25,35 @@ class AddEditActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.addedit_act)
-
+        setupObservers()
         replaceFragment(loadFragment(), R.id.fragment_container)
+    }
+
+    private fun setupObservers() {
+        obtainWeightAddEditViewModel().apply {
+            saveWeightEvent.observe(this@AddEditActivity, Observer<Void> {
+                this@AddEditActivity.onSaveEvent(WEIGHT)
+            })
+        }
+        obtainFoodAddEditViewModel().apply {
+            saveFoodEvent.observe(this@AddEditActivity, Observer<Void> {
+                this@AddEditActivity.onSaveEvent(AddEditActivity.FOOD)
+            })
+        }
+        obtainExerciseAddEditViewModel().apply {
+            saveExerciseEvent.observe(this@AddEditActivity, Observer<Void> {
+                this@AddEditActivity.onSaveEvent(AddEditActivity.EXERCISE)
+            })
+        }
+    }
+
+    private fun onSaveEvent(type: String) {
+        Snackbar.make(
+                findViewById(R.id.coordinator_layout),
+                "YO YO YO SAVE THIS! ${type}",
+                Snackbar.LENGTH_SHORT
+        ).show()
+
     }
 
     private fun loadFragment(): Fragment {
@@ -40,5 +73,9 @@ class AddEditActivity : AppCompatActivity() {
         const val FOOD = "FOOD"
         const val EXERCISE = "EXERCISE"
     }
+
+    fun obtainWeightAddEditViewModel(): WeightAddEditViewModel = obtainViewModel(WeightAddEditViewModel::class.java)
+    fun obtainFoodAddEditViewModel(): FoodAddEditViewModel = obtainViewModel(FoodAddEditViewModel::class.java)
+    fun obtainExerciseAddEditViewModel(): ExerciseAddEditViewModel = obtainViewModel(ExerciseAddEditViewModel::class.java)
 
 }

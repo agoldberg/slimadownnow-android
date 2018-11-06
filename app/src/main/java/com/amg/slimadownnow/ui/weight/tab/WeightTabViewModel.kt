@@ -7,11 +7,16 @@ import com.amg.slimadownnow.data.weight.Weight
 import com.amg.slimadownnow.data.weight.WeightRepository
 import com.amg.slimadownnow.util.SingleLiveEvent
 
+/**
+ * @author aaron_goldberg
+ *
+ * @since 10/18/18
+ */
 class WeightTabViewModel (
         context: Application, private var weightRepository: WeightRepository) : AndroidViewModel(context) {
     val isWeightRecorded: LiveData<Boolean>
     val sinceYesterday: LiveData<String> = buildSinceYesterday(weightRepository.getTodayWeight(), weightRepository.getYesterdayWeight())
-    val newWeightEvent = SingleLiveEvent<Void>()
+    val addWeightEvent = SingleLiveEvent<Void>()
 
     init {
         val todayWeight: LiveData<Weight> = weightRepository.getTodayWeight()
@@ -19,9 +24,8 @@ class WeightTabViewModel (
     }
 
     fun addWeight() {
-        newWeightEvent.call()
+        addWeightEvent.call()
     }
-
 
     private fun buildSinceYesterday(todayWeight: LiveData<Weight>, yesterdayWeight: LiveData<Weight>): MediatorLiveData<String> {
         return MediatorLiveData<String>().apply {

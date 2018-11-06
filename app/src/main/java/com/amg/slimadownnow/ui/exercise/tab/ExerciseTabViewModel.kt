@@ -4,11 +4,16 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import com.amg.slimadownnow.util.SingleLiveEvent
 
+/**
+ * @author aaron_goldberg
+ *
+ * @since 11/06/18
+ */
 class ExerciseTabViewModel (context: Application) : AndroidViewModel(context) {
 
-    val newExerciseEvent = SingleLiveEvent<Void>()
+    val addExerciseEvent = SingleLiveEvent<Void>()
 
     fun addExercise() {
-        newExerciseEvent.call()
+        addExerciseEvent.call()
     }
 }

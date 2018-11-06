@@ -24,24 +24,24 @@ class NavActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.nav_act)
-        setupVMs()
+        setupObservers()
         setupBottomNav()
     }
 
-    private fun setupVMs() {
+    private fun setupObservers() {
         obtainWeightTabViewModel().apply {
-            newWeightEvent.observe(this@NavActivity, Observer<Void> {
-                this@NavActivity.addNew(AddEditActivity.WEIGHT)
+            addWeightEvent.observe(this@NavActivity, Observer<Void> {
+                this@NavActivity.onAddEvent(AddEditActivity.WEIGHT)
             })
         }
         obtainFoodTabViewModel().apply {
-            newFoodEvent.observe(this@NavActivity, Observer<Void> {
-                this@NavActivity.addNew(AddEditActivity.FOOD)
+            addFoodEvent.observe(this@NavActivity, Observer<Void> {
+                this@NavActivity.onAddEvent(AddEditActivity.FOOD)
             })
         }
         obtainExerciseTabViewModel().apply {
-            newExerciseEvent.observe(this@NavActivity, Observer<Void> {
-                this@NavActivity.addNew(AddEditActivity.EXERCISE)
+            addExerciseEvent.observe(this@NavActivity, Observer<Void> {
+                this@NavActivity.onAddEvent(AddEditActivity.EXERCISE)
             })
         }
     }
@@ -54,7 +54,7 @@ class NavActivity : AppCompatActivity() {
         }
     }
 
-    private fun addNew(type: String) {
+    private fun onAddEvent(type: String) {
         val intent = Intent(this, AddEditActivity::class.java).apply {
             putExtra(AddEditActivity.ADD_EDIT_TYPE, type)
         }
