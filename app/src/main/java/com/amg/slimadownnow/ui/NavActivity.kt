@@ -8,6 +8,8 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.amg.slimadownnow.R
+import com.amg.slimadownnow.ui.exercise.tab.ExerciseTabViewModel
+import com.amg.slimadownnow.ui.food.tab.FoodTabViewModel
 import com.amg.slimadownnow.ui.weight.tab.WeightTabViewModel
 import com.amg.slimadownnow.util.obtainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -27,10 +29,19 @@ class NavActivity : AppCompatActivity() {
     }
 
     private fun setupVMs() {
-        val weightViewModel = obtainWeightTabViewModel()
-        weightViewModel.apply {
+        obtainWeightTabViewModel().apply {
             newWeightEvent.observe(this@NavActivity, Observer<Void> {
-                this@NavActivity.addNewWeight()
+                this@NavActivity.addNew(AddEditActivity.WEIGHT)
+            })
+        }
+        obtainFoodTabViewModel().apply {
+            newFoodEvent.observe(this@NavActivity, Observer<Void> {
+                this@NavActivity.addNew(AddEditActivity.FOOD)
+            })
+        }
+        obtainExerciseTabViewModel().apply {
+            newExerciseEvent.observe(this@NavActivity, Observer<Void> {
+                this@NavActivity.addNew(AddEditActivity.EXERCISE)
             })
         }
     }
@@ -43,13 +54,15 @@ class NavActivity : AppCompatActivity() {
         }
     }
 
-    private fun addNewWeight() {
+    private fun addNew(type: String) {
         val intent = Intent(this, AddEditActivity::class.java).apply {
-            putExtra(AddEditActivity.ADD_EDIT_TYPE, AddEditActivity.WEIGHT)
+            putExtra(AddEditActivity.ADD_EDIT_TYPE, type)
         }
         startActivity(intent)
     }
 
     fun obtainWeightTabViewModel(): WeightTabViewModel = obtainViewModel(WeightTabViewModel::class.java)
+    fun obtainFoodTabViewModel(): FoodTabViewModel = obtainViewModel(FoodTabViewModel::class.java)
+    fun obtainExerciseTabViewModel(): ExerciseTabViewModel = obtainViewModel(ExerciseTabViewModel::class.java)
 
 }

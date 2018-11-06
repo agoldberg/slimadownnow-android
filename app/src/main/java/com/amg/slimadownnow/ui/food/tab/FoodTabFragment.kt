@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.amg.slimadownnow.R
-import com.amg.slimadownnow.util.inflate
+import com.amg.slimadownnow.databinding.FoodTabFragBinding
+import com.amg.slimadownnow.ui.NavActivity
 import kotlinx.android.synthetic.main.nav_act.*
 
 /**
@@ -16,18 +18,29 @@ import kotlinx.android.synthetic.main.nav_act.*
  */
 class FoodTabFragment : Fragment() {
 
+    private lateinit var viewDataBinding: FoodTabFragBinding
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setupFab()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return container?.inflate(R.layout.food_tab_frag)
+        viewDataBinding = DataBindingUtil.inflate<FoodTabFragBinding>(
+                inflater, R.layout.food_tab_frag, container, false).apply {
+            viewModel = (activity as NavActivity).obtainFoodTabViewModel()
+            setLifecycleOwner(this@FoodTabFragment)
+        }
+
+        return viewDataBinding.root
     }
 
     fun setupFab() {
         requireActivity().fab_edit.apply {
             show ()
+            setOnClickListener {
+                viewDataBinding.viewModel?.addFood()
+            }
         }
     }
 }
