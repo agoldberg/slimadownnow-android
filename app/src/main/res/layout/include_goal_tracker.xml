@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/goal_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2000"
+        android:textAppearance="@android:style/TextAppearance.Material.Headline"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/left_guideline"/>
+
+    <TextView
+        android:id="@+id/goal_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_goal"
+        android:textAppearance="@android:style/TextAppearance.Material.Caption"
+        app:layout_constraintTop_toBottomOf="@id/goal_value"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/left_guideline"/>
+
+    <TextView
+        android:id="@+id/minus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/minus"
+        android:textAppearance="@android:style/TextAppearance.Material.Headline"
+        app:layout_constraintStart_toStartOf="@id/left_guideline"
+        app:layout_constraintEnd_toEndOf="@id/left_guideline"/>
+
+    <TextView
+        android:id="@+id/food_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1000"
+        android:textAppearance="@android:style/TextAppearance.Material.Headline"
+        app:layout_constraintRight_toLeftOf="@id/left_guideline"
+        app:layout_constraintLeft_toRightOf="@id/middle_guideline"/>
+
+    <TextView
+        android:id="@+id/food_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_food"
+        android:textAppearance="@android:style/TextAppearance.Material.Caption"
+        app:layout_constraintTop_toBottomOf="@id/food_value"
+        app:layout_constraintRight_toLeftOf="@id/left_guideline"
+        app:layout_constraintLeft_toRightOf="@id/middle_guideline"/>
+
+    <TextView
+        android:id="@+id/plus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/plus"
+        android:textAppearance="@android:style/TextAppearance.Material.Headline"
+        app:layout_constraintStart_toStartOf="@id/middle_guideline"
+        app:layout_constraintEnd_toEndOf="@id/middle_guideline"/>
+
+    <TextView
+        android:id="@+id/exercise_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="300"
+        android:textAppearance="@android:style/TextAppearance.Material.Headline"
+        app:layout_constraintRight_toLeftOf="@id/middle_guideline"
+        app:layout_constraintLeft_toRightOf="@id/right_guideline"/>
+
+    <TextView
+        android:id="@+id/exercise_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_exercise"
+        android:textAppearance="@android:style/TextAppearance.Material.Caption"
+        app:layout_constraintTop_toBottomOf="@id/exercise_value"
+        app:layout_constraintRight_toLeftOf="@id/middle_guideline"
+        app:layout_constraintLeft_toRightOf="@id/right_guideline"/>
+
+    <TextView
+        android:id="@+id/equals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/equals"
+        android:textAppearance="@android:style/TextAppearance.Material.Headline"
+        app:layout_constraintStart_toStartOf="@id/right_guideline"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline"/>
+
+    <TextView
+        android:id="@+id/remaining_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="700"
+        android:textAppearance="@android:style/TextAppearance.Material.Headline"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/right_guideline"/>
+
+    <TextView
+        android:id="@+id/remaining_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_remaining"
+        android:textAppearance="@android:style/TextAppearance.Material.Caption"
+        app:layout_constraintTop_toBottomOf="@id/remaining_value"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/right_guideline"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/middle_guideline"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/left_guideline"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/right_guideline"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75"/>
+
+</merge>

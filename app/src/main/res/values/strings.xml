@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">SlimaDown Now</string>
+    <string name="exercise_today_prompt">What did you do today?</string>
+    <string name="equals">=</string>
+    <string name="food_today_prompt">What did you eat today?</string>
+    <string name="see_trends">See Trends</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
+    <string name="title_exercise">Exercise</string>
+    <string name="title_food">Food</string>
+    <string name="title_goal">Goal</string>
+    <string name="title_home">Home</string>
+    <string name="title_remaining">Remaining</string>
+    <string name="title_weight">Weight</string>
+    <string name="weight_today_prompt">What did you weigh today?</string>
+    <string name="weight_bummer">Bummer! you gained %1$s lbs since yesterday.</string>
+    <string name="weight_congrats">Congrats! you lost %1$s lbs since yesterday!!</string>
+    <string name="weight_no_change">No Biggie! no change since yesterday!!</string>
+    <string name="weight_first">%1$s lbs is a good starting point! Lets get better! </string>
+</resources>
