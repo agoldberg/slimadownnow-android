@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.amg.slimadownnow.R
 import com.amg.slimadownnow.util.inflate
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.nav_act.*
 
 /**
  * @author aaron_goldberg
@@ -21,7 +21,7 @@ class ExerciseTabFragment : Fragment() {
         setupFab()
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return container?.inflate(R.layout.frag_tab_exercise)
+        return container?.inflate(R.layout.exercise_tab_frag)
     }
 
     fun setupFab() {

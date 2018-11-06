@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.amg.slimadownnow.R
-import com.amg.slimadownnow.databinding.FragTabWeightBinding
+import com.amg.slimadownnow.databinding.WeightTabFragBinding
 import com.amg.slimadownnow.ui.NavActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.nav_act.*
 
 
 /**
@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_main.*
  */
 class WeightTabFragment : Fragment() {
 
-    private lateinit var viewDataBinding: FragTabWeightBinding
+    private lateinit var viewDataBinding: WeightTabFragBinding
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -27,8 +27,8 @@ class WeightTabFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        viewDataBinding = DataBindingUtil.inflate<FragTabWeightBinding>(
-                inflater, R.layout.frag_tab_weight, container, false).apply {
+        viewDataBinding = DataBindingUtil.inflate<WeightTabFragBinding>(
+                inflater, R.layout.weight_tab_frag, container, false).apply {
             viewModel = (activity as NavActivity).obtainWeightTabViewModel()
             setLifecycleOwner(this@WeightTabFragment)
         }

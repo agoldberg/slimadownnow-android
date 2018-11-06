@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.amg.slimadownnow.R
 import com.amg.slimadownnow.util.inflate
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.nav_act.*
 
 /**
  * @author aaron_goldberg
@@ -22,7 +22,7 @@ class HomeTabFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return container?.inflate(R.layout.frag_tab_home)
+        return container?.inflate(R.layout.home_tab_frag)
     }
 
     private fun setupFab() {

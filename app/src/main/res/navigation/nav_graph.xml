@@ -8,7 +8,7 @@
         android:id="@+id/navigation_home"
         android:name="com.amg.slimadownnow.ui.home.HomeTabFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/frag_tab_home">
+        tools:layout="@layout/home_tab_frag">
 
     </fragment>
 
@@ -16,7 +16,7 @@
         android:id="@+id/navigation_weight"
         android:name="com.amg.slimadownnow.ui.weight.tab.WeightTabFragment"
         android:label="@string/title_weight"
-        tools:layout="@layout/frag_tab_weight">
+        tools:layout="@layout/weight_tab_frag">
 
     </fragment>
 
@@ -24,7 +24,7 @@
         android:id="@+id/navigation_food"
         android:name="com.amg.slimadownnow.ui.food.FoodTabFragment"
         android:label="@string/title_food"
-        tools:layout="@layout/frag_tab_food">
+        tools:layout="@layout/food_tab_frag">
 
     </fragment>
 
@@ -32,7 +32,7 @@
         android:id="@+id/navigation_exercise"
         android:name="com.amg.slimadownnow.ui.exercise.ExerciseTabFragment"
         android:label="@string/title_exercise"
-        tools:layout="@layout/frag_tab_exercise">
+        tools:layout="@layout/exercise_tab_frag">
 
     </fragment>
 

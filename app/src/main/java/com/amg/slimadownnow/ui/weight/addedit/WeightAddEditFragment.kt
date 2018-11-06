@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.amg.slimadownnow.R
 import com.amg.slimadownnow.util.inflate
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.addedit_act.*
 
 /**
  * @author aaron_goldberg
@@ -21,12 +21,12 @@ class WeightAddEditFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return container?.inflate(R.layout.frag_tab_home)
+        return container?.inflate(R.layout.weight_add_edit_frag)
     }
 
     private fun setupFab() {
-        requireActivity().fab_edit.apply {
-            hide ()
+        requireActivity().confirm.apply {
+            show ()
         }
     }
 }

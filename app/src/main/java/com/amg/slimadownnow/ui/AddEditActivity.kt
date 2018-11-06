@@ -2,7 +2,10 @@ package com.amg.slimadownnow.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.amg.slimadownnow.R
+import com.amg.slimadownnow.ui.weight.addedit.WeightAddEditFragment
+import com.amg.slimadownnow.util.replaceFragment
 
 /**
  * @author aaron_goldberg
@@ -13,7 +16,13 @@ class AddEditActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add)
+        setContentView(R.layout.addedit_act)
+
+        replaceFragment(loadFragment(), R.id.fragment_container)
+    }
+
+    private fun loadFragment(): Fragment {
+        return supportFragmentManager.findFragmentById(R.id.fragment_container) ?: WeightAddEditFragment()
     }
 
     companion object {
