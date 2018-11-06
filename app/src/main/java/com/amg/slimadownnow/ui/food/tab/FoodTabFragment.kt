@@ -1,4 +1,4 @@
-package com.amg.slimadownnow.ui.food
+package com.amg.slimadownnow.ui.food.tab
 
 import android.os.Bundle
 import android.view.LayoutInflater

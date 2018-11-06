@@ -1,4 +1,4 @@
-package com.amg.slimadownnow.ui.exercise
+package com.amg.slimadownnow.ui.exercise.tab
 
 import android.os.Bundle
 import android.view.LayoutInflater

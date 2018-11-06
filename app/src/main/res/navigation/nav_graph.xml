@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/navigation_food"
-        android:name="com.amg.slimadownnow.ui.food.FoodTabFragment"
+        android:name="com.amg.slimadownnow.ui.food.tab.FoodTabFragment"
         android:label="@string/title_food"
         tools:layout="@layout/food_tab_frag">
 
@@ -30,7 +30,7 @@
 
     <fragment
         android:id="@+id/navigation_exercise"
-        android:name="com.amg.slimadownnow.ui.exercise.ExerciseTabFragment"
+        android:name="com.amg.slimadownnow.ui.exercise.tab.ExerciseTabFragment"
         android:label="@string/title_exercise"
         tools:layout="@layout/exercise_tab_frag">
 

@@ -44,7 +44,9 @@ class NavActivity : AppCompatActivity() {
     }
 
     private fun addNewWeight() {
-        val intent = Intent(this, AddEditActivity::class.java)
+        val intent = Intent(this, AddEditActivity::class.java).apply {
+            putExtra(AddEditActivity.ADD_EDIT_TYPE, AddEditActivity.WEIGHT)
+        }
         startActivity(intent)
     }
 
